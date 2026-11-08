@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
-
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar>
+        <SearchBar />
+        <Results />
+      </NavBar>
+    </>
   );
 }
 
+function NavBar({ children }) {
+  return (
+    <>
+      <nav>
+        <Logo />
+        <SearchBar />
+        <Results />
+      </nav>
+    </>
+  );
+}
+function Logo() {
+  return (
+    <>
+      <span>🍿</span>
+      <p>popcorn</p>
+    </>
+  );
+}
+function SearchBar() {
+  return (
+    <>
+      <form>
+        <input type='search' placeholder='search for a movie...' />
+      </form>
+    </>
+  );
+}
+function Results() {
+  return (
+    <>
+      <p>found x of movies</p>
+    </>
+  );
+}
 export default App;
