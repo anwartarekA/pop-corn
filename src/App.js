@@ -7,9 +7,15 @@ const apiKey = 'f1d49a00';
 function App() {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
-    fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=game of thrones`)
-      .then((res) => res.json())
-      .then((data) => setMovies(data.Search));
+    async function fetchMovies() {
+      const res = await fetch(
+        `http://www.omdbapi.com/?apikey=${apiKey}&s=matrix}`,
+      );
+      const result = await res.json();
+      const data = result.Search;
+      setMovies(data);
+    }
+    fetchMovies();
   }, []);
   return (
     <>
