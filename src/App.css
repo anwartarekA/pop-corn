@@ -95,7 +95,7 @@ li:hover {
   background-color: #1c2023;
 }
 .box {
-  width: 35%;
+  width: 50%;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;

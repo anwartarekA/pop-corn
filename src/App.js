@@ -2,25 +2,30 @@ import './App.css';
 import { movies } from './dumeMovies';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { useState, useEffect } from 'react';
+const apiKey = 'f1d49a00';
 function App() {
+  const [movies, setMovies] = useState([]);
+  useEffect(() => {
+    fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=game of thrones`)
+      .then((res) => res.json())
+      .then((data) => setMovies(data.Search));
+  }, []);
   return (
     <>
-      <NavBar>
-        <SearchBar />
-        <Results />
-      </NavBar>
-      <Main />
+      <NavBar movies={movies} />
+      <Main movies={movies} />
     </>
   );
 }
 
-function NavBar({ children }) {
+function NavBar({ movies }) {
   return (
     <>
       <nav className='nav'>
         <Logo />
         <SearchBar />
-        <Results />
+        <Results movies={movies} />
       </nav>
     </>
   );
@@ -42,22 +47,22 @@ function SearchBar() {
     </div>
   );
 }
-function Results() {
+function Results({ movies }) {
   return (
     <div className='result'>
-      <p>found: x of movies</p>
+      <p>found: {movies.length} of movies</p>
     </div>
   );
 }
-function Main() {
+function Main({ movies }) {
   return (
     <div className='main'>
-      <MoviesList />
+      <MoviesList movies={movies} />
       <WatchedMovies />
     </div>
   );
 }
-function MoviesList() {
+function MoviesList({ movies }) {
   return (
     <div className='movies'>
       <span className='fold'>-</span>
