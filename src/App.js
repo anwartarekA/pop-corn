@@ -5,21 +5,24 @@ import { useState, useEffect } from 'react';
 const apiKey = 'f1d49a00';
 function App() {
   const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     async function fetchMovies() {
+      setIsLoading(true);
       const res = await fetch(
         `http://www.omdbapi.com/?apikey=${apiKey}&s=matrix}`,
       );
       const result = await res.json();
       const data = result.Search;
       setMovies(data);
+      setIsLoading(false);
     }
     fetchMovies();
   }, []);
   return (
     <>
       <NavBar movies={movies} />
-      <Main movies={movies} />
+      <Main movies={movies} isLoading={isLoading} />
     </>
   );
 }
@@ -59,10 +62,14 @@ function Results({ movies }) {
     </div>
   );
 }
-function Main({ movies }) {
+function Main({ movies, isLoading }) {
   return (
     <div className='main'>
-      <MoviesList movies={movies} />
+      {isLoading ? (
+        <p className='loading'>loading....</p>
+      ) : (
+        <MoviesList movies={movies} />
+      )}
       <WatchedMovies />
     </div>
   );
