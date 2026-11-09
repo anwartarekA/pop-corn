@@ -1,0 +1,70 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #1c2023;
+}
+.nav {
+  min-width: 100%;
+  background-color: #5b38d2;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.logo {
+  min-width: 25%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+.imoji {
+  float: left;
+  font-size: 25px;
+  margin-right: 10px;
+}
+.title {
+  font-size: 25px;
+  font-weight: bold;
+  font-family: calibri;
+  color: white;
+  text-align: center;
+}
+.search {
+  min-width: 40%;
+  padding: 0px 10px;
+  border-radius: 10px;
+  background-color: #6c46f1;
+  display: flex;
+  align-items: center;
+}
+form {
+  width: 100%;
+}
+input[type='search'] {
+  width: inherit;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  caret-color: gray;
+  color: white;
+}
+input[type='search']::placeholder {
+  width: inherit;
+  color: #a48fef;
+  font-size: 1rem;
+}
+.result {
+  min-width: 25%;
+  padding: 0 10px;
+}
+.result p {
+  text-align: center;
+  color: white;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 1.2rem;
+  padding: 10px;
+  margin-top: 5px;
+}

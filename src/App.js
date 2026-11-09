@@ -1,3 +1,4 @@
+import './App.css';
 function App() {
   return (
     <>
@@ -12,7 +13,7 @@ function App() {
 function NavBar({ children }) {
   return (
     <>
-      <nav>
+      <nav className='nav'>
         <Logo />
         <SearchBar />
         <Results />
@@ -22,26 +23,26 @@ function NavBar({ children }) {
 }
 function Logo() {
   return (
-    <>
-      <span>🍿</span>
-      <p>popcorn</p>
-    </>
+    <div className='logo'>
+      <span className='imoji'>🍿</span>
+      <p className='title'>popcorn</p>
+    </div>
   );
 }
 function SearchBar() {
   return (
-    <>
+    <div className='search'>
       <form>
         <input type='search' placeholder='search for a movie...' />
       </form>
-    </>
+    </div>
   );
 }
 function Results() {
   return (
-    <>
-      <p>found x of movies</p>
-    </>
+    <div className='result'>
+      <p>found: x of movies</p>
+    </div>
   );
 }
 export default App;
