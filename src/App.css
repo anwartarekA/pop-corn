@@ -50,6 +50,9 @@ input[type='search'] {
   outline: none;
   caret-color: gray;
   color: white;
+  opacity: 0.6;
+  font-family: calibri;
+  font-size: 1.1rem;
 }
 input[type='search']::placeholder {
   width: inherit;
