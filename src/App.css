@@ -158,4 +158,12 @@ li .poster {
   border-radius: 10px;
   padding: 10px;
   text-align: center;
+  min-height: calc(100vh - 93px);
+  position: relative;
+}
+.loading span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

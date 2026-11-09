@@ -66,7 +66,9 @@ function Main({ movies, isLoading }) {
   return (
     <div className='main'>
       {isLoading ? (
-        <p className='loading'>loading....</p>
+        <p className='loading'>
+          <span>loading....</span>
+        </p>
       ) : (
         <MoviesList movies={movies} />
       )}
